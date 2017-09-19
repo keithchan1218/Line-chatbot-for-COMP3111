@@ -80,6 +80,19 @@ public class KitchenSinkTester {
 		boolean thrown = false;
 		String result = null;
 		try {
+			result = this.databaseEngine.search("Who is Prof Kim");
+		} catch (Exception e) {
+			thrown = true;
+		}
+		assertThat(!thrown).isEqualTo(true);
+		assertThat(result).isEqualTo("Well, this is your instructor.");
+	}
+	
+	@Test
+	public void testKeithYeahFound() throws Exception {
+		boolean thrown = false;
+		String result = null;
+		try {
 			result = this.databaseEngine.search("keith");
 		} catch (Exception e) {
 			thrown = true;
